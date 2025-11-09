@@ -1,0 +1,36 @@
+{
+  "name": "womenlia",
+  "version": "1.0.0",
+  "description": "women俩 - 母女沟通与共听播客的小程序平台",
+  "main": "server/app.js",
+  "scripts": {
+    "start": "node server/app.js",
+    "dev": "nodemon server/app.js",
+    "db:init": "mysql -u root -p < server/database.sql",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "podcast",
+    "mother-daughter",
+    "communication",
+    "webrtc",
+    "websocket"
+  ],
+  "author": "women俩团队",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "ws": "^8.14.2",
+    "cors": "^2.8.5",
+    "mysql2": "^3.6.5",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  }
+}
+

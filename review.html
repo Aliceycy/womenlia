@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>共听回顾 - women俩</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 顶部导航 -->
+        <header class="header">
+            <div class="logo">
+                <h1>women俩</h1>
+            </div>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">首页</a>
+                <a href="review.html" class="nav-link active">回顾</a>
+                <a href="profile.html" class="nav-link">我的</a>
+            </nav>
+        </header>
+
+        <!-- 回顾列表 -->
+        <section class="review-section">
+            <div class="section-header">
+                <h2>共听回顾</h2>
+                <p>重温那些温暖的对话时刻</p>
+            </div>
+
+            <div class="review-list" id="reviewList">
+                <!-- 回顾卡片示例 -->
+                <div class="review-card" data-session-id="1">
+                    <div class="review-header">
+                        <div class="review-info">
+                            <h3 class="review-title">鲁豫对话小帕｜要走多少路，才能成为一个女人</h3>
+                            <p class="review-date">2024年11月8日 20:30</p>
+                        </div>
+                        <span class="review-badge">已生成播客</span>
+                    </div>
+
+                    <div class="review-stats">
+                        <div class="stat-item">
+                            <span class="stat-icon">⏱️</span>
+                            <span class="stat-value">58分钟</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-icon">💬</span>
+                            <span class="stat-value">23条对话</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-icon">❤️</span>
+                            <span class="stat-value">15个表情</span>
+                        </div>
+                    </div>
+
+                    <div class="review-participants">
+                        <div class="participant">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=50" alt="女儿">
+                            <span>云云</span>
+                        </div>
+                        <span class="with">与</span>
+                        <div class="participant">
+                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=50" alt="云妈">
+                            <span>云妈</span>
+                        </div>
+                    </div>
+
+                    <button class="btn-view-detail" onclick="viewDetail(1)">
+                        查看详情 →
+                    </button>
+                </div>
+
+                <!-- 更多回顾卡片会动态加载 -->
+            </div>
+        </section>
+    </div>
+
+    <script src="js/review.js"></script>
+    <script>
+        // 查看详情
+        function viewDetail(sessionId) {
+            window.location.href = `review-detail.html?session=${sessionId}`;
+        }
+    </script>
+</body>
+</html>
+

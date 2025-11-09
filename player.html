@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>播放中 - women俩</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="player-page">
+    <div class="player-container">
+        <!-- 顶部返回栏 -->
+        <header class="player-header">
+            <button class="btn-back" onclick="window.history.back()">
+                <span>←</span> 返回
+            </button>
+            <div class="header-title">
+                <span class="status-dot online"></span>
+                <span>共听中</span>
+            </div>
+            <button class="btn-more">⋮</button>
+        </header>
+
+        <!-- 随机小鸟图片展示区域 -->
+        <div class="bird-display-area">
+            <img id="birdImage" src="" alt="鸟类图片" class="bird-image">
+            <div class="bird-overlay"></div>
+            
+            <!-- 弹幕容器 -->
+            <div class="danmaku-container" id="danmakuContainer"></div>
+            
+            <!-- 在线用户头像 -->
+            <div class="online-users">
+                <div class="user-avatar" data-user="daughter">
+                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100" alt="女儿">
+                    <span class="user-label">女儿</span>
+                </div>
+                <div class="connection-line"></div>
+                <div class="user-avatar" data-user="mother">
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100" alt="云妈">
+                    <span class="user-label">云妈</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 播客信息 -->
+        <div class="podcast-info-bar">
+            <h2 class="podcast-title" id="podcastTitle">鲁豫对话小帕｜要走多少路，才能成为一个女人</h2>
+            <p class="podcast-host">主播：鲁豫有约</p>
+        </div>
+
+        <!-- 播放进度条 -->
+        <div class="progress-section">
+            <div class="progress-bar-container">
+                <div class="progress-bar" id="progressBar">
+                    <div class="progress-fill" id="progressFill"></div>
+                    <div class="progress-handle" id="progressHandle"></div>
+                </div>
+            </div>
+            <div class="time-display">
+                <span id="currentTime">00:00</span>
+                <span id="totalTime">60:00</span>
+            </div>
+        </div>
+
+        <!-- 播放控制 -->
+        <div class="player-controls">
+            <button class="control-btn" id="btnRewind">
+                <span class="icon">⏪</span>
+                <span class="label">-15s</span>
+            </button>
+            
+            <button class="control-btn btn-play-pause" id="btnPlayPause">
+                <span class="icon">▶</span>
+            </button>
+            
+            <button class="control-btn" id="btnForward">
+                <span class="icon">⏩</span>
+                <span class="label">+15s</span>
+            </button>
+        </div>
+
+        <!-- 互动控制区域 -->
+        <div class="interaction-controls">
+            <!-- 模式切换 -->
+            <div class="mode-switch">
+                <button class="mode-btn active" data-mode="casual">
+                    <span class="icon">💬</span>
+                    <span>随意模式</span>
+                </button>
+                <button class="mode-btn" data-mode="formal">
+                    <span class="icon">🎙️</span>
+                    <span>正式对谈</span>
+                </button>
+            </div>
+
+            <!-- 快捷互动按钮 -->
+            <div class="quick-actions">
+                <!-- 语音通话按钮 -->
+                <button class="action-btn btn-voice" id="btnVoice">
+                    <span class="icon">🎤</span>
+                    <span class="label">长按说话</span>
+                </button>
+
+                <!-- 表情快捷按钮 -->
+                <div class="emoji-quick-bar">
+                    <button class="emoji-btn" data-emoji="❤️">❤️</button>
+                    <button class="emoji-btn" data-emoji="😊">😊</button>
+                    <button class="emoji-btn" data-emoji="😢">😢</button>
+                    <button class="emoji-btn" data-emoji="👍">👍</button>
+                    <button class="emoji-btn" data-emoji="💪">💪</button>
+                    <button class="emoji-btn more" id="btnMoreEmoji">➕</button>
+                </div>
+            </div>
+
+            <!-- 文字弹幕输入 -->
+            <div class="danmaku-input-container">
+                <input type="text" 
+                       class="danmaku-input" 
+                       id="danmakuInput" 
+                       placeholder="输入文字弹幕..." 
+                       maxlength="30">
+                <button class="btn-send-danmaku" id="btnSendDanmaku">发送</button>
+            </div>
+        </div>
+
+        <!-- 下拉提示 -->
+        <div class="pull-down-hint">
+            <span class="arrow">↓</span>
+            <span>下拉进入正式对谈会议室</span>
+        </div>
+    </div>
+
+    <!-- 正式对谈会议室（隐藏状态） -->
+    <div class="formal-room" id="formalRoom">
+        <div class="formal-room-content">
+            <button class="btn-close-formal" id="btnCloseFormal">
+                <span>↑</span> 返回播放
+            </button>
+            
+            <h2 class="formal-title">正式对谈会议室</h2>
+            <p class="formal-subtitle">更专注的深度对话空间</p>
+
+            <div class="formal-users">
+                <div class="formal-user-card">
+                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100" alt="女儿" class="formal-avatar">
+                    <span class="formal-name">女儿</span>
+                    <div class="voice-wave" id="waveUser1">
+                        <span class="wave-bar"></span>
+                        <span class="wave-bar"></span>
+                        <span class="wave-bar"></span>
+                        <span class="wave-bar"></span>
+                    </div>
+                    <button class="btn-mute" data-user="user1">
+                        <span class="icon">🔊</span>
+                    </button>
+                </div>
+
+                <div class="formal-user-card">
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100" alt="云妈" class="formal-avatar">
+                    <span class="formal-name">云妈</span>
+                    <div class="voice-wave" id="waveUser2">
+                        <span class="wave-bar"></span>
+                        <span class="wave-bar"></span>
+                        <span class="wave-bar"></span>
+                        <span class="wave-bar"></span>
+                    </div>
+                    <button class="btn-mute" data-user="user2">
+                        <span class="icon">🔊</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="formal-controls">
+                <button class="formal-control-btn" id="btnToggleMic">
+                    <span class="icon">🎤</span>
+                    <span>麦克风</span>
+                </button>
+                <button class="formal-control-btn" id="btnToggleSpeaker">
+                    <span class="icon">🔊</span>
+                    <span>扬声器</span>
+                </button>
+                <button class="formal-control-btn danger" id="btnEndFormal">
+                    <span class="icon">📞</span>
+                    <span>结束对谈</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 表情选择器弹窗 -->
+    <div class="emoji-picker-modal" id="emojiPickerModal">
+        <div class="emoji-picker-content">
+            <button class="modal-close" id="closeEmojiPicker">&times;</button>
+            <h3>选择表情</h3>
+            <div class="emoji-grid">
+                <button class="emoji-btn" data-emoji="😀">😀</button>
+                <button class="emoji-btn" data-emoji="😃">😃</button>
+                <button class="emoji-btn" data-emoji="😄">😄</button>
+                <button class="emoji-btn" data-emoji="😊">😊</button>
+                <button class="emoji-btn" data-emoji="😍">😍</button>
+                <button class="emoji-btn" data-emoji="🥰">🥰</button>
+                <button class="emoji-btn" data-emoji="😘">😘</button>
+                <button class="emoji-btn" data-emoji="😗">😗</button>
+                <button class="emoji-btn" data-emoji="😙">😙</button>
+                <button class="emoji-btn" data-emoji="😚">😚</button>
+                <button class="emoji-btn" data-emoji="😋">😋</button>
+                <button class="emoji-btn" data-emoji="😛">😛</button>
+                <button class="emoji-btn" data-emoji="😝">😝</button>
+                <button class="emoji-btn" data-emoji="😜">😜</button>
+                <button class="emoji-btn" data-emoji="🤪">🤪</button>
+                <button class="emoji-btn" data-emoji="😇">😇</button>
+                <button class="emoji-btn" data-emoji="🤗">🤗</button>
+                <button class="emoji-btn" data-emoji="🤔">🤔</button>
+                <button class="emoji-btn" data-emoji="😢">😢</button>
+                <button class="emoji-btn" data-emoji="😭">😭</button>
+                <button class="emoji-btn" data-emoji="😤">😤</button>
+                <button class="emoji-btn" data-emoji="😠">😠</button>
+                <button class="emoji-btn" data-emoji="😡">😡</button>
+                <button class="emoji-btn" data-emoji="🤯">🤯</button>
+                <button class="emoji-btn" data-emoji="❤️">❤️</button>
+                <button class="emoji-btn" data-emoji="💔">💔</button>
+                <button class="emoji-btn" data-emoji="💕">💕</button>
+                <button class="emoji-btn" data-emoji="💖">💖</button>
+                <button class="emoji-btn" data-emoji="💗">💗</button>
+                <button class="emoji-btn" data-emoji="💪">💪</button>
+                <button class="emoji-btn" data-emoji="👍">👍</button>
+                <button class="emoji-btn" data-emoji="👏">👏</button>
+                <button class="emoji-btn" data-emoji="🙏">🙏</button>
+                <button class="emoji-btn" data-emoji="🌟">🌟</button>
+                <button class="emoji-btn" data-emoji="✨">✨</button>
+                <button class="emoji-btn" data-emoji="🌈">🌈</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/player.js"></script>
+</body>
+</html>
+

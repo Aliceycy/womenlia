@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>回顾详情 - women俩</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 返回栏 -->
+        <header class="detail-header">
+            <button class="btn-back" onclick="window.history.back()">
+                <span>←</span> 返回
+            </button>
+        </header>
+
+        <!-- 回顾详情内容 -->
+        <div class="review-detail">
+            <!-- 基础信息 -->
+            <div class="detail-banner">
+                <h2 class="detail-title" id="detailTitle">鲁豫对话小帕｜要走多少路，才能成为一个女人</h2>
+                <p class="detail-date" id="detailDate">2024年11月8日 20:30 - 21:28</p>
+                <div class="detail-participants">
+                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=60" alt="女儿">
+                    <span class="heart-icon">💕</span>
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=60" alt="妈妈">
+                </div>
+            </div>
+
+            <!-- 统计信息 -->
+            <div class="detail-stats">
+                <div class="stat-card">
+                    <span class="stat-number">58</span>
+                    <span class="stat-label">共听分钟</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">23</span>
+                    <span class="stat-label">对话次数</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">15</span>
+                    <span class="stat-label">表情互动</span>
+                </div>
+            </div>
+
+            <!-- Shownotes 摘要 -->
+            <div class="shownotes-section">
+                <h3 class="section-title">
+                    <span class="icon">📝</span>
+                    对话要点 Shownotes
+                </h3>
+                <div class="shownotes-content" id="shownotesContent">
+                    <div class="shownote-item">
+                        <span class="timestamp">05:23</span>
+                        <p>云妈分享了她年轻时对于"成为女人"的困惑，提到外婆对她的期待</p>
+                    </div>
+                    <div class="shownote-item">
+                        <span class="timestamp">12:45</span>
+                        <p>女儿表达了对职场性别歧视的观察，母女探讨了不同年代的女性处境</p>
+                    </div>
+                    <div class="shownote-item">
+                        <span class="timestamp">28:10</span>
+                        <p>播客中小帕的经历引发共鸣，云妈提到"每个女人都要走自己的路"</p>
+                    </div>
+                    <div class="shownote-item">
+                        <span class="timestamp">41:30</span>
+                        <p>女儿感谢云妈的理解，两人约定每周固定时间一起听播客</p>
+                    </div>
+                </div>
+                <button class="btn-generate-shownotes" id="btnGenerateShownotes">
+                    <span class="icon">✨</span>
+                    AI智能生成摘要
+                </button>
+            </div>
+
+            <!-- 生成的回顾播客 -->
+            <div class="generated-podcast-section">
+                <h3 class="section-title">
+                    <span class="icon">🎙️</span>
+                    你们的回顾播客
+                </h3>
+                <div class="generated-podcast-player">
+                    <div class="podcast-cover-mini">
+                        <img src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=300" alt="播客封面">
+                    </div>
+                    <div class="podcast-player-controls">
+                        <button class="btn-play-mini" id="btnPlayGenerated">
+                            <span>▶</span>
+                        </button>
+                        <div class="mini-progress">
+                            <div class="mini-progress-bar">
+                                <div class="mini-progress-fill" id="generatedProgress"></div>
+                            </div>
+                            <div class="mini-time">
+                                <span id="generatedCurrentTime">00:00</span>
+                                <span id="generatedTotalTime">58:43</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="podcast-actions">
+                    <button class="btn-action" id="btnDownload">
+                        <span class="icon">📥</span>
+                        下载音频
+                    </button>
+                    <button class="btn-action" id="btnShare">
+                        <span class="icon">🔗</span>
+                        分享回顾
+                    </button>
+                </div>
+            </div>
+
+            <!-- 对话记录 -->
+            <div class="conversation-section">
+                <h3 class="section-title">
+                    <span class="icon">💬</span>
+                    对话记录回放
+                </h3>
+                <div class="conversation-timeline" id="conversationTimeline">
+                    <!-- 对话记录项 -->
+                    <div class="conversation-item user-daughter">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=40" alt="女儿" class="conv-avatar">
+                        <div class="conv-content">
+                            <div class="conv-header">
+                                <span class="conv-name">云云</span>
+                                <span class="conv-time">05:23</span>
+                            </div>
+                            <div class="conv-message">
+                                <span class="voice-badge">🎤 语音 12"</span>
+                                <audio class="audio-player" src="#" controls></audio>
+                            </div>
+                            <p class="conv-text">云妈，你年轻的时候也有过这种困惑吗？就是不知道自己想要成为什么样的人...</p>
+                        </div>
+                    </div>
+
+                    <div class="conversation-item user-mother">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=40" alt="云妈" class="conv-avatar">
+                        <div class="conv-content">
+                            <div class="conv-header">
+                                <span class="conv-name">云妈</span>
+                                <span class="conv-time">05:45</span>
+                            </div>
+                            <div class="conv-message">
+                                <span class="voice-badge">🎤 语音 28"</span>
+                                <audio class="audio-player" src="#" controls></audio>
+                            </div>
+                            <p class="conv-text">当然有啊，你外婆那时候总是说女孩子要温柔懂事，但我心里其实想做很多"不一样"的事情...</p>
+                        </div>
+                    </div>
+
+                    <div class="conversation-item emoji-interaction">
+                        <span class="emoji-large">❤️</span>
+                        <p class="interaction-text">云云发送了一个爱心</p>
+                    </div>
+
+                    <div class="conversation-item danmaku-interaction">
+                        <div class="danmaku-bubble">
+                            <span class="user-name">云云：</span>
+                            <span class="danmaku-text">云妈，我爱你 💕</span>
+                        </div>
+                    </div>
+
+                    <!-- 更多对话记录会动态加载 -->
+                </div>
+            </div>
+
+            <!-- 情感分析（可选功能） -->
+            <div class="emotion-section">
+                <h3 class="section-title">
+                    <span class="icon">💖</span>
+                    情感分析
+                </h3>
+                <div class="emotion-chart">
+                    <div class="emotion-item">
+                        <span class="emotion-label">倾听</span>
+                        <div class="emotion-bar">
+                            <div class="emotion-fill" style="width: 85%"></div>
+                        </div>
+                        <span class="emotion-value">85%</span>
+                    </div>
+                    <div class="emotion-item">
+                        <span class="emotion-label">边界</span>
+                        <div class="emotion-bar">
+                            <div class="emotion-fill" style="width: 78%"></div>
+                        </div>
+                        <span class="emotion-value">78%</span>
+                    </div>
+                    <div class="emotion-item">
+                        <span class="emotion-label">认同</span>
+                        <div class="emotion-bar">
+                            <div class="emotion-fill" style="width: 92%"></div>
+                        </div>
+                        <span class="emotion-value">92%</span>
+                    </div>
+                </div>
+                <p class="emotion-summary">
+                    这次对话充满了温暖与理解。你们在倾听彼此的过程中，找到了跨越代际的共鸣。继续保持这样的交流吧！
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/review-detail.js"></script>
+</body>
+</html>
+

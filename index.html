@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>women俩 - 母女共听播客平台</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 顶部导航 -->
+        <header class="header">
+            <div class="logo">
+                <h1>women俩</h1>
+                <p class="subtitle">听见彼此，也听见爱</p>
+            </div>
+            <nav class="nav">
+                <a href="index.html" class="nav-link active">首页</a>
+                <a href="review.html" class="nav-link">回顾</a>
+                <a href="profile.html" class="nav-link">我的</a>
+            </nav>
+        </header>
+
+        <!-- 主横幅 -->
+        <section class="hero">
+            <div class="hero-content">
+                <h2>像鸟一样倾听，像风一样靠近</h2>
+                <p>women俩，一起听，一起懂。</p>
+            </div>
+        </section>
+
+        <!-- 精选推荐 -->
+        <section class="featured-section">
+            <div class="section-header">
+                <h3>精选推荐</h3>
+                <p>专为母女对话精选的播客主题</p>
+            </div>
+
+            <div class="podcast-grid">
+                <!-- 播客卡片1 -->
+                <div class="podcast-card" data-podcast-id="1">
+                    <div class="podcast-cover">
+                        <img src="https://images.unsplash.com/photo-1564349683136-77e08dba1ef7?w=400" alt="鲁豫对话">
+                        <div class="play-overlay">
+                            <button class="btn-play">▶</button>
+                        </div>
+                    </div>
+                    <div class="podcast-info">
+                        <h4 class="podcast-title">鲁豫对话小帕｜要走多少路，才能成为一个女人</h4>
+                        <p class="podcast-desc">探讨女性成长与身份认同的深度对话</p>
+                        <div class="podcast-meta">
+                            <span class="duration">60分钟</span>
+                            <span class="listens">1.2k次共听</span>
+                        </div>
+                        <button class="btn-listen-together" data-podcast-id="1">
+                            <span class="icon">🎧</span>
+                            一起听
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 播客卡片2 -->
+                <div class="podcast-card" data-podcast-id="2">
+                    <div class="podcast-cover">
+                        <img src="https://images.unsplash.com/photo-1444464666168-49d633b86797?w=400" alt="更年期对话">
+                        <div class="play-overlay">
+                            <button class="btn-play">▶</button>
+                        </div>
+                    </div>
+                    <div class="podcast-info">
+                        <h4 class="podcast-title">如何与更年期老妈相处</h4>
+                        <p class="podcast-desc">理解我妈，调查外婆，研究激素</p>
+                        <div class="podcast-meta">
+                            <span class="duration">45分钟</span>
+                            <span class="listens">856次共听</span>
+                        </div>
+                        <button class="btn-listen-together" data-podcast-id="2">
+                            <span class="icon">🎧</span>
+                            一起听
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 播客卡片3 -->
+                <div class="podcast-card" data-podcast-id="3">
+                    <div class="podcast-cover">
+                        <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400" alt="海淀妈妈">
+                        <div class="play-overlay">
+                            <button class="btn-play">▶</button>
+                        </div>
+                    </div>
+                    <div class="podcast-info">
+                        <h4 class="podcast-title">与海淀妈妈聊天</h4>
+                        <p class="podcast-desc">理想中的主体性，现实里的鸡娃战</p>
+                        <div class="podcast-meta">
+                            <span class="duration">52分钟</span>
+                            <span class="listens">967次共听</span>
+                        </div>
+                        <button class="btn-listen-together" data-podcast-id="3">
+                            <span class="icon">🎧</span>
+                            一起听
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 播客卡片4 -->
+                <div class="podcast-card" data-podcast-id="4">
+                    <div class="podcast-cover">
+                        <img src="https://images.unsplash.com/photo-1518156677180-95a2893f3e9f?w=400" alt="电影解析">
+                        <div class="play-overlay">
+                            <button class="btn-play">▶</button>
+                        </div>
+                    </div>
+                    <div class="podcast-info">
+                        <h4 class="podcast-title">电影中的女性力量</h4>
+                        <p class="podcast-desc">《坠落的审判》《瞬息全宇宙》《好东西》深度解读</p>
+                        <div class="podcast-meta">
+                            <span class="duration">68分钟</span>
+                            <span class="listens">1.5k次共听</span>
+                        </div>
+                        <button class="btn-listen-together" data-podcast-id="4">
+                            <span class="icon">🎧</span>
+                            一起听
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 最近共听记录 -->
+        <section class="recent-section">
+            <div class="section-header">
+                <h3>最近共听</h3>
+            </div>
+            <div class="recent-list" id="recentList">
+                <div class="empty-state">
+                    <p>还没有共听记录</p>
+                    <p class="hint">邀请云妈或女儿一起开始第一次对话吧</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- 邀请弹窗 -->
+    <div class="modal" id="inviteModal">
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <h3>邀请共听</h3>
+            <p class="modal-desc">选择邀请方式与对方一起聆听</p>
+            
+            <div class="invite-options">
+                <button class="invite-btn" id="inviteByLink">
+                    <span class="icon">🔗</span>
+                    <div>
+                        <strong>分享链接</strong>
+                        <p>复制链接发送给对方</p>
+                    </div>
+                </button>
+                
+                <button class="invite-btn" id="inviteByQR">
+                    <span class="icon">📱</span>
+                    <div>
+                        <strong>扫码加入</strong>
+                        <p>生成二维码供对方扫描</p>
+                    </div>
+                </button>
+            </div>
+
+            <div class="qr-container" id="qrContainer" style="display:none;">
+                <canvas id="qrCode"></canvas>
+                <p>请对方扫描二维码加入</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/index.js"></script>
+</body>
+</html>
+
